@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-category"><%= fighter.type_gladiator %></div>
+  <div class="card-description">
+    <h2><%= fighter.name %></h2>
+  </div>
+    <% case fighter.type_gladiator %>
+    <% when "Mirmillon" %>
+      <%= image_tag "mirmillon.jpg", class: 'card-fighter' %>
+    <% when "Retiaire" %>
+      <%= image_tag "retiaire.jpg", class: 'card-fighter' %>
+    <% when "Thrace" %>
+      <%= image_tag "thrace.jpg", class: 'card-fighter' %>
+    <% when "Hoplomaque" %>
+      <%= image_tag "hoplomaque.jpg", class: 'card-fighter' %>
+    <% end %>
+</div>

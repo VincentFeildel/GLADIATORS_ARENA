@@ -1,0 +1,122 @@
+<div class="container">
+    <%= link_to "Retour", root_path, class: "btn btn-primary" %>
+</div>
+<div class="container">
+
+  <h2>Créer nouveau gladiateur</h2>
+
+
+  <%= simple_form_for(@fighter) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <div class="row">
+        <div class="col-xs-6">
+          <%= f.input :name %>
+        </div>
+        <div class="col-xs-6">
+          <%= f.input :type_gladiator, collection: Fighter::GLAD_TYPES, prompt: "Quel type de gladiateur?"%>
+        </div>
+      </div>
+      <p>Sélectionner votre type de gladiateur, puis renforcer votre gladiateur en cliquant sur les "+" et "-"</p>
+      <p><strong>Points restants: </strong><strong id="points_restants">20</strong></p>
+
+      <div class="form-group integer optional fighter_life">
+        <label class="control-label integer optional" for="fighter_life">Vie</label>
+        <input class="form-control numeric integer optional" type="number" step="1" name="fighter[life]" id="fighter_life" readonly="readonly" value=100>
+        <p><i class="fa fa-plus-square-o" aria-hidden="true"></i> <i class="fa fa-minus-square-o" aria-hidden="true"></i></p>
+      </div>
+      <div class="row">
+        <div class="col-xs-4">
+          <div class="form-group integer optional fighter_attack">
+            <label class="control-label integer optional" for="fighter_attack">Attaque</label>
+            <input class="form-control numeric integer optional" type="number" step="1" name="fighter[attack]" id="fighter_attack" readonly="readonly" value=50>
+            <p><i class="fa fa-plus-square-o" aria-hidden="true"></i> <i class="fa fa-minus-square-o" aria-hidden="true"></i></p>
+          </div>
+          <div class="form-group integer optional fighter_endurance">
+            <label class="control-label integer optional" for="fighter_endurance">Endurance</label>
+            <input class="form-control numeric integer optional" type="number" step="1" name="fighter[endurance]" id="fighter_endurance" readonly="readonly" value=50>
+            <p><i class="fa fa-plus-square-o" aria-hidden="true"></i> <i class="fa fa-minus-square-o" aria-hidden="true"></i></p>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="form-group integer optional fighter_precision">
+            <label class="control-label integer optional" for="fighter_precision">Précision</label>
+            <input class="form-control numeric integer optional" type="number" step="1" name="fighter[precision]" id="fighter_precision" readonly="readonly" value=50>
+            <p><i class="fa fa-plus-square-o" aria-hidden="true"></i> <i class="fa fa-minus-square-o" aria-hidden="true"></i></p>
+          </div>
+          <div class="form-group integer optional fighter_armor">
+            <label class="control-label integer optional" for="fighter_armor">Armure</label>
+            <input class="form-control numeric integer optional" type="number" step="1" name="fighter[armor]" id="fighter_armor" readonly="readonly" value=50>
+            <p><i class="fa fa-plus-square-o" aria-hidden="true"></i> <i class="fa fa-minus-square-o" aria-hidden="true"></i></p>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="form-group integer optional fighter_dodge">
+            <label class="control-label integer optional" for="fighter_dodge">Esquive</label>
+            <input class="form-control numeric integer optional" type="number" step="1" name="fighter[dodge]" id="fighter_dodge" readonly="readonly" value=50>
+            <p><i class="fa fa-plus-square-o" aria-hidden="true"></i> <i class="fa fa-minus-square-o" aria-hidden="true"></i></p>
+          </div>
+          <div class="form-group integer optional fighter_resistance">
+            <label class="control-label integer optional" for="fighter_resistance">Résistance</label>
+            <input class="form-control numeric integer optional" type="number" step="1" name="fighter[resistance]" id="fighter_resistance" readonly="readonly" value=50>
+            <p><i class="fa fa-plus-square-o" aria-hidden="true"></i> <i class="fa fa-minus-square-o" aria-hidden="true"></i></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Créer", class: "btn btn-primary"%>
+    </div>
+  <% end %>
+
+</div>
+
+<script>
+  const TypeGlad = document.getElementById('fighter_type_gladiator')
+
+  const Attack = document.getElementById('fighter_attack')
+  const Endurance = document.getElementById('fighter_endurance')
+  const Precision = document.getElementById('fighter_precision')
+  const Armure = document.getElementById('fighter_armor')
+  const Esquive = document.getElementById('fighter_dodge')
+  const Resistance = document.getElementById('fighter_resistance')
+
+  TypeGlad.addEventListener("change", function () {
+    switch (TypeGlad.value) {
+      case "Mirmillon":
+        Attack.value = 80;
+        Endurance.value = 40;
+        Precision.value = 40;
+        Armure.value = 90;
+        Esquive.value = 40;
+        Resistance.value = 50;
+        break;
+      case "Retiaire":
+        Attack.value = 70;
+        Endurance.value = 70;
+        Precision.value = 70;
+        Armure.value = 30;
+        Esquive.value = 60;
+        Resistance.value = 70;
+        break;
+      case "Thrace":
+        Attack.value = 70;
+        Endurance.value = 60;
+        Precision.value = 70;
+        Armure.value = 60;
+        Esquive.value = 70;
+        Resistance.value = 60;
+        break;
+      case "Hoplomaque":
+        Attack.value = 70;
+        Endurance.value = 20;
+        Precision.value = 70;
+        Armure.value = 80;
+        Esquive.value = 70;
+        Resistance.value = 60;
+        break;
+    }
+  });
+</script>

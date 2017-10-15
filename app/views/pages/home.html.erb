@@ -1,2 +1,25 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home-gladiator">
+  <div class="selected_fighters">
+    <%= form_tag %>
+  </div>
+  <div class="container">
+    <%= link_to "Créer nouveau gladiateur", new_fighter_path, class: "btn btn-primary new-gladiator" %>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <h2>Gladiateur 1: </h2>
+        <% @fighters.each do |fighter| %>
+          <%= render 'gladiator_card', fighter: fighter %>
+        <% end %>
+      </div>
+      <div class="col-xs-6">
+        <h2>Gladiateur 2: </h2>
+        <% @fighters.each do |fighter| %>
+          <%= render 'gladiator_card', fighter: fighter %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
