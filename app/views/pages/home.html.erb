@@ -1,22 +1,39 @@
 <div class="home-gladiator">
-  <div class="selected_fighters">
-    <%= form_tag %>
+
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://statcdn.fandango.com/MPX/image/NBCU_Fandango/322/907/Gladiator_MaxTheMericful.jpg');">
+    <div class="banner-content">
+      <h1>GLADIATOR ARENA</h1>
+      <p>Bienvenue dans le meilleur jeu de castagne de toute la Gaule</p>
+    </div>
   </div>
+
   <div class="container">
+    <div class="selected_fighters">
+      <%= form_tag(fighting_path, method: :get) do %>
+        <label for="bonus_1">Bonus 1: </label>
+        <%= select_tag "bonus_1", options_for_select([ "glaive sournois", "poison", "potion magique" ], "glaive sournois") %>
+        <label for="Glad_1">Gladiateur 1: </label>
+        <%= select_tag "Glad_1", options_from_collection_for_select(@fighters, "id", "name") %>
+        <%= submit_tag "VS", class: "btn btn-primary btn-versus" %>
+        <label for="Glad_2">Gladiateur 2: </label>
+        <%= select_tag "Glad_2", options_from_collection_for_select(@fighters, "id", "name") %>
+        <label for="bonus_2">Bonus 2: </label>
+        <%= select_tag "bonus_2", options_for_select([ "glaive sournois", "poison", "potion magique" ], "potion magique") %>
+      <% end %>
+    </div>
     <%= link_to "Créer nouveau gladiateur", new_fighter_path, class: "btn btn-primary new-gladiator" %>
   </div>
 
   <div class="container">
     <div class="row">
+      <h2>Gladiateurs: </h2>
       <div class="col-xs-6">
-        <h2>Gladiateur 1: </h2>
         <% @fighters.each do |fighter| %>
           <%= render 'gladiator_card', fighter: fighter %>
         <% end %>
       </div>
       <div class="col-xs-6">
-        <h2>Gladiateur 2: </h2>
-        <% @fighters.each do |fighter| %>
+        <% @fighters.reverse.each do |fighter| %>
           <%= render 'gladiator_card', fighter: fighter %>
         <% end %>
       </div>

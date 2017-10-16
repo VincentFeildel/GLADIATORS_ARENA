@@ -14,15 +14,12 @@
     position: relative;
     margin-top: 10px;
 
-    &:hover {
-      cursor: pointer;
-    }
   }
   .card-fighter {
     position: absolute;
-    right: 10px;
-    top: 10px;
-    width: 40px;
+    right: 254px;
+    top: 14px;
+    width: 149px;
     border-radius: 50%;
   }
   .card-category {
@@ -55,8 +52,62 @@
     background: black;
     opacity: 0;
   }
-  .card-link:hover {
-    opacity: 0.1;
+
+  .selected_fighters {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0px;
+
+    .btn-versus {
+      font-size: 40px;
+      font-weight: bold;
+    }
+  }
+
+  .strengths-gladiator {
+    position: absolute;
+    top: -12px;
+    right: 21px;
+    width: 100px;
+
+    hr {
+      height: 3px;
+      background-color: white;
+      margin-left: 0px;
+    }
+  }
+
+  .strengths-types {
+    position: absolute;
+    top: 9px;
+    right: 94px;
+    width: 100px;
+    line-height: 14px;
+    p {
+      font-size: 11px;
+      padding: 1px;    }
+  }
+
+  .banner {
+    color: white;
+    text-align: center;
+    height: 50vh;
+    background-size: cover !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .banner h1 {
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  }
+  .banner p {
+    font-size: 25px;
+    font-weight: lighter;
+    color: rgb(255, 255, 255);
+    opacity: 0.6;
+    margin-bottom: 30px;
   }
 }
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171015121409) do
+ActiveRecord::Schema.define(version: 20171015162030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20171015121409) do
     t.integer "armor"
     t.integer "resistance"
     t.string "type_gladiator"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fights", force: :cascade do |t|
+    t.integer "fighter_1"
+    t.integer "fighter_2"
+    t.string "winner"
+    t.string "fight_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

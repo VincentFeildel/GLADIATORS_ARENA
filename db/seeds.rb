@@ -7,7 +7,7 @@ f.life = 100
 # Skills:
 f.attack = 80
 f.endurance = 40
-f.precision = 40
+f.precision = 50
 f.armor = 90
 f.dodge = 40
 f.resistance = 50
@@ -16,13 +16,13 @@ f.save
 f = Fighter.new
 f.type_gladiator = 'Retiaire'
 f.name = "Antivirus"
-f.life = 100
+f.life = 90
 # Skills:
 f.attack = 70
 f.endurance = 70
 f.precision = 70
 f.armor = 30
-f.dodge = 60
+f.dodge = 50
 f.resistance = 70
 f.save
 
@@ -33,9 +33,9 @@ f.life = 100
 # Skills:
 f.attack = 70
 f.endurance = 60
-f.precision = 70
+f.precision = 60
 f.armor = 60
-f.dodge = 70
+f.dodge = 60
 f.resistance = 60
 f.save
 
@@ -45,7 +45,7 @@ f.name = "Rictus"
 f.life = 100
 # Skills:
 f.attack = 70
-f.endurance = 20
+f.endurance = 30
 f.precision = 70
 f.armor = 80
 f.dodge = 70

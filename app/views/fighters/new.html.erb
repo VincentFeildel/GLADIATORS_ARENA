@@ -76,6 +76,7 @@
 <script>
   const TypeGlad = document.getElementById('fighter_type_gladiator')
 
+// Initialisation des points de force en fonction du type
   const Attack = document.getElementById('fighter_attack')
   const Endurance = document.getElementById('fighter_endurance')
   const Precision = document.getElementById('fighter_precision')
@@ -86,9 +87,9 @@
   TypeGlad.addEventListener("change", function () {
     switch (TypeGlad.value) {
       case "Mirmillon":
-        Attack.value = 80;
+        Attack.value = 90;
         Endurance.value = 40;
-        Precision.value = 40;
+        Precision.value = 60;
         Armure.value = 90;
         Esquive.value = 40;
         Resistance.value = 50;
@@ -98,25 +99,46 @@
         Endurance.value = 70;
         Precision.value = 70;
         Armure.value = 30;
-        Esquive.value = 60;
+        Esquive.value = 50;
         Resistance.value = 70;
         break;
       case "Thrace":
         Attack.value = 70;
         Endurance.value = 60;
-        Precision.value = 70;
+        Precision.value = 60;
         Armure.value = 60;
-        Esquive.value = 70;
+        Esquive.value = 60;
         Resistance.value = 60;
         break;
       case "Hoplomaque":
         Attack.value = 70;
-        Endurance.value = 20;
+        Endurance.value = 40;
         Precision.value = 70;
         Armure.value = 80;
         Esquive.value = 70;
         Resistance.value = 60;
         break;
     }
+  });
+
+  // Ajout des points libres
+  const PointsRestants = document.getElementById("points_restants");
+  Array.from(document.getElementsByClassName("fa fa-plus-square-o")).forEach((plus) => {
+    plus.addEventListener("click", (event) => {
+      const Force = event.target.parentElement.parentElement.getElementsByClassName('form-control')[0];
+      if (PointsRestants.innerText != "0") {
+        Force.value = parseInt(Force.value) + 1;
+        PointsRestants.innerText = parseInt(PointsRestants.innerText) - 1;
+      };
+    });
+  });
+  Array.from(document.getElementsByClassName("fa fa-minus-square-o")).forEach((minus) => {
+    minus.addEventListener("click", (event) => {
+      const Force = event.target.parentElement.parentElement.getElementsByClassName('form-control')[0];
+      if (PointsRestants.innerText != "20") {
+        Force.value = parseInt(Force.value) - 1;
+        PointsRestants.innerText = parseInt(PointsRestants.innerText) + 1;
+      };
+    });
   });
 </script>
